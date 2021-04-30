@@ -1,12 +1,13 @@
 import Head from 'next/head'
+import Layout from '../components/Layout'
 
 export default function HomePage() {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Grindhouse Events</title>
       </Head>
       <h1>Home</h1>
-    </div>
+    </Layout>
   )
 }
