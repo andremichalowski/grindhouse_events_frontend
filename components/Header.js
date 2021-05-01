@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/Header.modules.css'
-
+import styles from '../styles/Header.module.css'
 
 export default function Header() {
   return (
@@ -11,6 +10,15 @@ export default function Header() {
         </Link>
       </div>
       
+      <nav>
+        <ul>
+          <li>
+            <Link href='/events'>
+              <a>Events</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }
