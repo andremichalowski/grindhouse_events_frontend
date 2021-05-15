@@ -13,6 +13,7 @@ export default function AddEventPage() {
     performers: '',
     venue: '',
     address: '',
+    date: '',
     time: '',
     description: ''
   })
@@ -23,9 +24,7 @@ export default function AddEventPage() {
     e.preventDefault()
     
     //Validation
-    const hasEmptyFields = Object.values(values).some((element) => 
-      element === ''
-    )
+    const hasEmptyFields = Object.values(values).some((element) => element === '')
 
     if(hasEmptyFields) {
       toast.error('Please fill in all fields')
