@@ -16,7 +16,7 @@ export default function EventItem({ evt }) {
       <div className={styles.info}>
         <h3>{evt.name}</h3>
           <span>
-            {evt.date} at {evt.time}
+            {new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
           </span>
       </div>
 
