@@ -20,7 +20,7 @@ export default function AddEventPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // setValues = e.target.value
-    console.log('Submit')
+    console.log(values)
   }
 
   const handleInputChange = (e) => {
@@ -94,7 +94,22 @@ export default function AddEventPage() {
               onChange={handleInputChange}
             />
           </div>
+
         </div>
+          
+        <div>
+          <label htmlFor='description'>Event Description</label>
+          <textarea
+            type='text'
+            name='description'
+            id='description'
+            value={values.description}
+            onChange={handleInputChange}
+          ></textarea>
+        </div>
+        
+        <input type="submit" value='Add Event' className='btn' />
+
       </form>
     </Layout>
   )
