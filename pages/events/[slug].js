@@ -58,6 +58,7 @@ export async function getServerSideProps({ query: {slug} }) {
 
   return {
     props: {
+      // evt: events[0],
       evt: eventsJ[0],
     },
   }
