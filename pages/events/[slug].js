@@ -8,8 +8,7 @@ import styles from '@/styles/Event.module.css'
 
 
 export default function EventPage({evt}) {
-  // const router = useRouter()
-  // console.log(router)
+  const router = useRouter()
   const deleteEvent = (e) => {
     console.log('delete')
   }
@@ -28,12 +27,12 @@ export default function EventPage({evt}) {
           </a>
         </div>
         <span>
-          {evt.date} at {evt.time}
+          {new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
         </span>
         <h1>{evt.name}</h1>
         {evt.image && (
           <div className={styles.image}>
-            <Image src={evt.image} width={960} height={600} />
+            <Image src={evt.image.formats.medium ? evt.image.formats.medium.url : evt.image.formats.thumbnail.url } width={960} height={600} />
           </div>
         )}
         <h3>Performers:</h3>
@@ -47,21 +46,20 @@ export default function EventPage({evt}) {
           <a className={styles.back}>{'<'} Go Back</a>
         </Link>
       </div>
-      {/* <h3>{router.query.slug}</h3> */}
-      {/* <button onClick={() => router.push('/')}>Home</button> */}
     </Layout>
   )
 }
 
 
-export async function getServerSideProps({query: {slug}}) {
-  // console.log(slug)
-  const res = await fetch(`${API_URL}/events/${slug}`)
+export async function getServerSideProps({ query: {slug} }) {
+  const res = await fetch(`${API_URL}/events?slug=${slug}`)
   const events = await res.json()
+  const eventsJ = JSON.stringify(events)
 
   return {
     props: {
-      evt: events[0],
+      // evt: events[0],
+      evt: eventsJ[0],
     },
   }
 }
