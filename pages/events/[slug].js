@@ -8,10 +8,10 @@ import styles from '@/styles/Event.module.css'
 import { toast } from 'react-toastify'
 
 
-export default function EventPage({evt}) {
+export default function EventPage({ evt }) {
   const router = useRouter()
-  const deleteEvent = (e) => {
-    if(confirm('Are you sure?')){
+  const deleteEvent = async (e) => {
+    if(confirm('Are you sure?')) {
       const res = await fetch(`${API_URL}/events/${evt.id}`, {
         method: 'DELETE'
       })
@@ -21,10 +21,11 @@ export default function EventPage({evt}) {
       if(!res.ok) {
         toast.error(data.message)
       } else {
-        Router.push('/events')
+        router.push('/events')
       }
+    }
   }
-
+  
   return (
     <Layout >
       <div className={styles.event}>
@@ -63,17 +64,13 @@ export default function EventPage({evt}) {
 }
 
 
-export async function getServerSideProps({ query: {slug} }) {
+export async function getServerSideProps({ query: { slug } }) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`)
-  console.log('response test for created events', res)
   const events = await res.json()
-
-  // const eventsJ = JSON.stringify(events)
 
   return {
     props: {
       evt: events[0],
-      // evt: eventsJ[0],
     },
   }
 }
