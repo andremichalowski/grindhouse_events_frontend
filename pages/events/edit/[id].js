@@ -31,8 +31,8 @@ export default function EditEventPage({evt}) {
       toast.error('Please fill in all fields')
     }
 
-    const res = await fetch(`${API_URL}/events`, {
-      method: 'POST',
+    const res = await fetch(`${API_URL}/events/${evt.id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -43,10 +43,7 @@ export default function EditEventPage({evt}) {
       toast.error('Something Went Wrong')
     } else {
       const evt = await res.json()
-      // *** Error: Error serializing `.evt` returned from `getServerSideProps` in "/events/[slug]". Reason: `undefined` cannot be serialized as JSON. Please use `null` or omit this value.
-      // const evtJ = JSON.stringify(evt)
       router.push(`/events/${evt.slug}`)
-      // router.push(`/events/${evtJ.slug}`)
     }
   }
 
