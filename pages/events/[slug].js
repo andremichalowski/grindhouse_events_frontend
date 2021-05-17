@@ -1,18 +1,31 @@
 import {FaPencilAlt, FaTimes} from 'react-icons/fa'
 import Link from 'next/link'
 import Image from 'next/image'
-import {useRouter} from 'next/router'
+import {Router, useRouter} from 'next/router'
 import Layout from '@/components/Layout'
 import {API_URL} from '@/config/index'
 import styles from '@/styles/Event.module.css'
+import { toast } from 'react-toastify'
 
 
-export default function EventPage({evt}) {
+export default function EventPage({ evt }) {
   const router = useRouter()
-  const deleteEvent = (e) => {
-    console.log('delete')
-  }
+  const deleteEvent = async (e) => {
+    if(confirm('Are you sure?')) {
+      const res = await fetch(`${API_URL}/events/${evt.id}`, {
+        method: 'DELETE'
+      })
+      
+      const data = await res.json()
 
+      if(!res.ok) {
+        toast.error(data.message)
+      } else {
+        router.push('/events')
+      }
+    }
+  }
+  
   return (
     <Layout >
       <div className={styles.event}>
@@ -51,15 +64,13 @@ export default function EventPage({evt}) {
 }
 
 
-export async function getServerSideProps({ query: {slug} }) {
+export async function getServerSideProps({ query: { slug } }) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`)
   const events = await res.json()
-  const eventsJ = JSON.stringify(events)
 
   return {
     props: {
-      // evt: events[0],
-      evt: eventsJ[0],
+      evt: events[0],
     },
   }
 }
