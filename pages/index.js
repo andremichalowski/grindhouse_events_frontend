@@ -19,12 +19,13 @@ export default function HomePage({ events }) {
     </Layout>
   )
 }
+
 export async function getStaticProps() {
     const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`)
     const events = await res.json()
 
     return {
       props: { events },
-      revalidate: 1,
+      revalidate: 1
     }
 }
