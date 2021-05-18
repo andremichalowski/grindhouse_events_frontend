@@ -7,7 +7,6 @@ import {API_URL} from '@/config/index'
 import styles from '@/styles/Event.module.css'
 import { toast } from 'react-toastify'
 
-
 export default function EventPage({ evt }) {
   const router = useRouter()
   const deleteEvent = async (e) => {
@@ -25,7 +24,7 @@ export default function EventPage({ evt }) {
       }
     }
   }
-  
+
   return (
     <Layout >
       <div className={styles.event}>
