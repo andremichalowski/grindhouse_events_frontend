@@ -54,14 +54,15 @@ export default function EditEventPage({evt}) {
   }
 
   const handleInputChange = (e) => {
-    e.preventDefault()
     const {name, value} = e.target
     setValues({...values, [name]: value})
   }
 
-  const imageUploaded = (e) => {
-    e.preventDefault()
-    console.log('uploaded')
+  const imageUploaded = async (e) => {
+    const res = await fetch(`${API_URL}/events/${evt.id}`)
+    const data = await res.json()
+    setImagePreview(data.image.formats.thumbnail.url)
+    setShowModal(false)
   }
   return (
     <Layout title='Add New Event'>

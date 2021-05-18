@@ -22,12 +22,12 @@ export default function ImageUpload({evtId, imageUploaded}) {
     if(res.ok) {
       imageUploaded()
     } else {
-
+      console.log('issue with res for imageUploaded')
     }
   }
   
   const handleFileChange = (e) => {
-    console.log(e.target.files[0])
+    setImage(e.target.files[0])
   }
 
 
