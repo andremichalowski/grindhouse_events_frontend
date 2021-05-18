@@ -10,6 +10,7 @@ import {API_URL} from '@/config/index'
 import styles from '@/styles/Form.module.css'
 import Layout from '@/components/Layout'
 import Modal from '@/components/Modal'
+import ImageUpload from '@/components/ImageUpload'
 
 export default function EditEventPage({evt}) {
   const [values, setValues] = useState({
@@ -56,6 +57,11 @@ export default function EditEventPage({evt}) {
     e.preventDefault()
     const {name, value} = e.target
     setValues({...values, [name]: value})
+  }
+
+  const imageUploaded = (e) => {
+    e.preventDefault()
+    console.log('uploaded')
   }
   return (
     <Layout title='Add New Event'>
@@ -158,7 +164,7 @@ export default function EditEventPage({evt}) {
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        IMAGE UPLOAD
+        <ImageUpload evtId={evt.id} imageUploaded={imageUploaded} />
       </Modal>
     </Layout>
   )
