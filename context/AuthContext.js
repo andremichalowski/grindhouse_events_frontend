@@ -6,11 +6,13 @@ const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null)
+  // const [user, setUser] = useState({name: 'Brad'})
   const [error, setError] = useState(null)
 
   // Register
   const register = async (user) => {
     console.log(user)
+    // setUser('test')
   }
 
   // Login
