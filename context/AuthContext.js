@@ -14,7 +14,7 @@ export const AuthProvider = ({children}) => {
   }
 
   // Login
-  const login = async ({ mail:identifier, password }) => {
+  const login = async ({ email:identifier, password }) => {
     const res = await fetch(`${NEXT_URL}/api/login`, {
       method: 'POST',
       headers: {
@@ -41,6 +41,7 @@ export const AuthProvider = ({children}) => {
   // Logout
   const logout = async () => {
     console.log('Logout!')
+    setUser(null)
   }
 
   // Check if user is logged in
