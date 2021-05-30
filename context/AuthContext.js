@@ -8,6 +8,8 @@ export const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null)
   const [error, setError] = useState(null)
 
+  const router = useRouter()
+
   useEffect(() => checkUserLoggedIn(), [])
 
   // Register
@@ -34,6 +36,7 @@ export const AuthProvider = ({children}) => {
     
     if(res.ok) {
       setUser(data.user)
+      router.push('/account/dashboard')
     } else {
       setError(data.message)
       setError(null)
@@ -48,11 +51,12 @@ export const AuthProvider = ({children}) => {
 
   // Check if user is logged in
   const checkUserLoggedIn = async (user) => {
-    const res = await fetch(`${NEXT_URL}/api/user`) // hitting our own api route get request 
-    const data = await res.json() // setting de-serialized res as data
+    const res = await fetch(`${NEXT_URL}/api/user`)
+    const data = await res.json() 
 
     if(res.ok) {
-      setUser(data.user) // if res ok setUser to data of user otherwise null
+      setUser(data.user)
+
     } else {
       setUser(null)
     }
