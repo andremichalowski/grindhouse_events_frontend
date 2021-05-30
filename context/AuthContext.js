@@ -8,6 +8,8 @@ export const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null)
   const [error, setError] = useState(null)
 
+  useEffect(() => checkUserLoggedIn(), [])
+
   // Register
   const register = async (user) => {
     console.log(user)
@@ -46,7 +48,15 @@ export const AuthProvider = ({children}) => {
 
   // Check if user is logged in
   const checkUserLoggedIn = async (user) => {
-    console.log('Check')
+    const res = await fetch(`${NEXT_URL}/api/user`) // hitting our own api route get request 
+    const data = await res.json() // setting de-serialized res as data
+
+    if(res.ok) {
+      setUser(data.user) // if res ok setUser to data of user otherwise null
+    } else {
+      setUser(null)
+    }
+
   }
 
   return (
