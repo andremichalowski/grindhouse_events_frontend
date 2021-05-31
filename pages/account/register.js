@@ -25,7 +25,7 @@ export default function RegisterPage() {
       toast.error('Passwords do not match')
       return
     }
-    register({username, email, password})
+    register({ username, email, password })
   }
 
   return (
