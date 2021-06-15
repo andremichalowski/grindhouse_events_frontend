@@ -8,6 +8,7 @@ import styles from '@/styles/Event.module.css'
 import { toast } from 'react-toastify'
 
 export default function EventPage({ evt }) {
+  console.log({evt})
   const router = useRouter()
   const deleteEvent = async (e) => {
     if(confirm('Are you sure?')) {
@@ -63,7 +64,7 @@ export default function EventPage({ evt }) {
 }
 
 
-export async function getServerSideProps({ query: { slug } }) {
+export async function getServerSideProps({query: {slug}}) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`)
   const events = await res.json()
 
