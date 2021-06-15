@@ -6,7 +6,7 @@ import AuthContext from '@/context/AuthContext'
 import styles from '@/styles/Header.module.css'
 
 export default function Header() {
-  const {user, logout} = useContext(AuthContext)
+  const { user, logout } = useContext(AuthContext)
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -24,7 +24,7 @@ export default function Header() {
               <a>Events</a>
             </Link>
           </li>
-          {user ? 
+          {user ? (
             <>
               {/* User logged in */}
               <li>
@@ -42,17 +42,19 @@ export default function Header() {
                   <FaSignOutAlt /> Logout
                 </button>
               </li>
-            </> : 
+            </>
+           ) : ( 
             <>
               {/* User is logged out/no-user */}
               <li>
                 <Link href='/account/login'>
                   <a className="btn-secondary btn-icon">
-                    <FaSignInAlt />Login</a>
+                    <FaSignInAlt />Login
+                  </a>
                 </Link>
               </li>
             </>
-          }
+           )}
         </ul>
       </nav>
     </header>

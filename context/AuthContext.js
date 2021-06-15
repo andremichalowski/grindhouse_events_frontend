@@ -24,7 +24,7 @@ export const AuthProvider = ({children}) => {
 
     const data = await res.json()
 
-    console.log(data)
+    console.log('context/AuthContext.js output', data)
     
     if(res.ok) {
       setUser(data.user)
@@ -66,7 +66,6 @@ export const AuthProvider = ({children}) => {
     const res = await fetch(`${NEXT_URL}/api/logout`, {
       method: 'POST',
     })
-
     if (res.ok) {
       setUser(null)
       router.push('/')
@@ -80,7 +79,6 @@ export const AuthProvider = ({children}) => {
 
     if(res.ok) {
       setUser(data.user)
-
     } else {
       setUser(null)
     }
