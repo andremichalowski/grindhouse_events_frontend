@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link href='/'>
+        <NextLink href='/'>
           <a>Grindhouse Events</a>
         </Link>
       </div>
@@ -20,7 +20,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link href='/events'>
+            <NextLink href='/events'>
               <a>Events</a>
             </Link>
           </li>
@@ -28,12 +28,12 @@ export default function Header() {
             <>
               {/* User logged in */}
               <li>
-                <Link href='/events/add'>
+                <NextLink href='/events/add'>
                   <a>Add Event</a>
                 </Link>
               </li>
               <li>
-                <Link href='/account/dashboard'>
+                <NextLink href='/account/dashboard'>
                   <a>Dashboard</a>
                 </Link>
               </li>
@@ -47,7 +47,7 @@ export default function Header() {
             <>
               {/* User is logged out/no-user */}
               <li>
-                <Link href='/account/login'>
+                <NextLink href='/account/login'>
                   <a className="btn-secondary btn-icon">
                     <FaSignInAlt />Login
                   </a>

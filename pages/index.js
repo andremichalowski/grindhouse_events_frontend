@@ -12,7 +12,7 @@ export default function HomePage({ events }) {
         <EventItem key={evt.id} evt={evt} />
       ))}
       {events.length > 0 && (
-        <Link href='/events'>
+        <NextLink href='/events'>
           <a className='btn-secondary'>View All</a>
         </Link>
       )}

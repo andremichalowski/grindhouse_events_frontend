@@ -31,7 +31,7 @@ export default function EventPage({ evt }) {
     <Layout >
       <div className={styles.event}>
         <div className={styles.controls}>
-          <Link href={`/events/edit/${evt.id}`}>
+          <NextLink href={`/events/edit/${evt.id}`}>
             <a>
               <FaPencilAlt /> Edit Event
             </a>
@@ -58,7 +58,7 @@ export default function EventPage({ evt }) {
 
         <EventMap evt={evt} />
 
-        <Link href="/events">
+        <NextLink href="/events">
           <a className={styles.back}>{'<'} Go Back</a>
         </Link>
       </div>
