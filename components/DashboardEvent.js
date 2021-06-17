@@ -14,7 +14,9 @@ export default function DashboardEvent({ evt, handleDelete }) {
           <a>{evt.name}</a>
         </NextLink>
       </h4>
-      { user ? (
+      {!user ? (
+        <h4 style="text-color: gray"> Login to create and edit events. </h4>
+      ) : ( 
         <div>
           <NextLink href={`/events/edit/${evt.id}`}>
             <a className={styles.edit}>
@@ -29,8 +31,6 @@ export default function DashboardEvent({ evt, handleDelete }) {
             <FaTimes /> <span>Delete</span>
           </a>
         </div>
-      ) : ( 
-        <h4 style="text-color: gray"> </h4>
       )}
     </div>
   )
