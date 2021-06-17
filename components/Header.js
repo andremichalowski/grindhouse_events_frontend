@@ -12,7 +12,7 @@ export default function Header() {
       <div className={styles.logo}>
         <NextLink href='/'>
           <a>Grindhouse Events</a>
-        </Link>
+        </NextLink>
       </div>
       
       <Search />
@@ -22,7 +22,7 @@ export default function Header() {
           <li>
             <NextLink href='/events'>
               <a>Events</a>
-            </Link>
+            </NextLink>
           </li>
           {user ? (
             <>
@@ -30,12 +30,12 @@ export default function Header() {
               <li>
                 <NextLink href='/events/add'>
                   <a>Add Event</a>
-                </Link>
+                </NextLink>
               </li>
               <li>
                 <NextLink href='/account/dashboard'>
                   <a>Dashboard</a>
-                </Link>
+                </NextLink>
               </li>
               <li>
                 <button onClick={() => logout()} className="btn-secondary btn-icon">
@@ -51,7 +51,7 @@ export default function Header() {
                   <a className="btn-secondary btn-icon">
                     <FaSignInAlt />Login
                   </a>
-                </Link>
+                </NextLink>
               </li>
             </>
            )}

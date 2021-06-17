@@ -35,7 +35,7 @@ export default function EventPage({ evt }) {
             <a>
               <FaPencilAlt /> Edit Event
             </a>
-          </Link>
+          </NextLink>
           <a href='#' className={styles.delete} onClick={deleteEvent}>
             <FaTimes /> Delete Event
           </a>
@@ -60,7 +60,7 @@ export default function EventPage({ evt }) {
 
         <NextLink href="/events">
           <a className={styles.back}>{'<'} Go Back</a>
-        </Link>
+        </NextLink>
       </div>
     </Layout>
   )

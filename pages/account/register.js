@@ -81,7 +81,7 @@ export default function RegisterPage() {
         </form>
 
         <p>
-          Already have an account? <NextLink href='/account/login'>Login</Link>
+          Already have an account? <NextLink href='/account/login'>Login</NextLink>
         </p>
       </div>
     </Layout>

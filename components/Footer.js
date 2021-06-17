@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <p> &copy; Grindhouse Recordings 2021 </p>
-      <NextLink href="/about">About Grindhouse Recordings</Link>
+      <NextLink href="/about">About Grindhouse Recordings</NextLink>
     </footer>
   )
 }

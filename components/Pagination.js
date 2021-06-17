@@ -8,13 +8,13 @@ export default function Pagination({ page, total }) {
       {page > 1 && (
         <NextLink href={`/events?page=${page - 1}`}>
           <a className='btn-secondary'>Prev</a>
-        </Link>
+        </NextLink>
       )}
 
       {page < lastPage && (
         <NextLink href={`/events?page=${page + 1}`}>
           <a className='btn-secondary'>Next</a>
-        </Link>
+        </NextLink>
       )}
     </>
   )

@@ -14,7 +14,7 @@ export default function HomePage({ events }) {
       {events.length > 0 && (
         <NextLink href='/events'>
           <a className='btn-secondary'>View All</a>
-        </Link>
+        </NextLink>
       )}
     </Layout>
   )

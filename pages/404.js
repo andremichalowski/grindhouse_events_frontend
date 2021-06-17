@@ -10,7 +10,7 @@ export default function NotFoundPage() {
         <h1>
           <FaExlamationTriangle />404</h1>
         <h4>Sorry there is nothing here.</h4>
-        <NextLink href="/">Go Back Home</Link>
+        <NextLink href="/">Go Back Home</NextLink>
       </div>
     </Layout>
   )
