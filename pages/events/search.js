@@ -9,7 +9,7 @@ export default function SearchPage({ events }) {
   const router = useRouter()
   return (
     <Layout title='Search Results'>
-      <Link href="/events">Go Back</Link>
+      <NextLink href="/events">Go Back</NextLink>
       <h1>Search Results for '{router.query.term}' </h1>
       {events.length === 0 && <h3>No events to show</h3>}
       {events.map((evt) => (

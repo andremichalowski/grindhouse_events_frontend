@@ -31,11 +31,11 @@ export default function EventPage({ evt }) {
     <Layout >
       <div className={styles.event}>
         <div className={styles.controls}>
-          <Link href={`/events/edit/${evt.id}`}>
+          <NextLink href={`/events/edit/${evt.id}`}>
             <a>
               <FaPencilAlt /> Edit Event
             </a>
-          </Link>
+          </NextLink>
           <a href='#' className={styles.delete} onClick={deleteEvent}>
             <FaTimes /> Delete Event
           </a>
@@ -58,9 +58,9 @@ export default function EventPage({ evt }) {
 
         <EventMap evt={evt} />
 
-        <Link href="/events">
+        <NextLink href="/events">
           <a className={styles.back}>{'<'} Go Back</a>
-        </Link>
+        </NextLink>
       </div>
     </Layout>
   )
