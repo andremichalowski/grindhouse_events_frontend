@@ -1,7 +1,7 @@
 import qs from 'qs'
 import {useRouter} from 'next/router'
 import Layout from '@/components/Layout'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import EventItem from '@/components/EventItem'
 import { API_URL } from '@/config/index'
 

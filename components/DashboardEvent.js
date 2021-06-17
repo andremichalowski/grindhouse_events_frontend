@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { FaPencilAlt, FaTimes } from 'react-icons/fa'
 import styles from '@/styles/DashboardEvent.module.css'
 

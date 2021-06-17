@@ -1,5 +1,5 @@
 import {FaPencilAlt, FaTimes} from 'react-icons/fa'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import Image from 'next/image'
 import {Router, useRouter} from 'next/router'
 import Layout from '@/components/Layout'
